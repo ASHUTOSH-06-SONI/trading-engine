@@ -22,13 +22,17 @@ cargo run -p launcher -- --mode live
 ```
 
 ### Metrics
-Prometheus metrics are exposed at:
-http://127.0.0.1:9090/metrics
+Prometheus metrics are exposed at port 9090
 
 Metrics include:
 - `order_count`: Total orders executed.
 - `obi_value`: Current Top-1 Order Book Imbalance.
-
+- `total_pnl`: Cumulative profit and loss after accounting for all executed trades
+- `sharpe_ratio`: Risk-adjusted return metric to evaluate strategy consistency.
+- `max_drawdown`: The largest peak-to-trough decline, measuring the worst-case risk scenario.
+- `total_fees_paid`: Total exchange/trading fees incurred (critical for high-frequency strategies).
+- `win_rate`: The percentage of profitable trades relative to the total number of trades.
+- `avg_slippage`: difference between the expected price and the actual execution price.
 ### Backtest Mode (Stub)
 ```bash
 cargo run --release -p launcher -- --mode backtest --file ./data/replay/btcusdt.csv
