@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "ingestion",
+    "orderbook",
+    "features",
+    "signals",
+    "risk",
+    "execution",
+    "backtest",
+    "common",
+    "launcher"
+]
+resolver = "2"
+
