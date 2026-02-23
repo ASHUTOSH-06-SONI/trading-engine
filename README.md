@@ -31,7 +31,7 @@ Metrics include:
 
 ### Backtest Mode (Stub)
 ```bash
-cargo run -p launcher -- --mode backtest --file ./data.parquet
+cargo run --release -p launcher -- --mode backtest --file ./data/replay/btcusdt.csv
 ```
 
 ## Workspace Structure
