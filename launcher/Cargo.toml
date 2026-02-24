@@ -1,0 +1,23 @@
+[package]
+name = "launcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ingestion = { path = "../ingestion" }
+orderbook = { path = "../orderbook" }
+features = { path = "../features" }
+signals = { path = "../signals" }
+risk = { path = "../risk" }
+execution = { path = "../execution" }
+backtest = { path = "../backtest" }
+common = { path = "../common" }
+tokio = { version = "1.0", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+warp = "0.3"
+prometheus = "0.13"
+lazy_static = "1.4"
+serde_json = "1.0"

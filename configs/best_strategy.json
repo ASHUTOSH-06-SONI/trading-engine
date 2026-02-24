@@ -1,0 +1,12 @@
+{
+  "params": {
+    "obi_threshold": 0.1,
+    "cooldown_steps": 180,
+    "target_profit_bps": 2.0
+  },
+  "net_pnl": -64.56681156774539,
+  "sharpe_ratio": -13.680820754551931,
+  "max_drawdown": 0.009503980494191605,
+  "win_rate": 0.09156993785906906,
+  "total_trades": 8529
+}
