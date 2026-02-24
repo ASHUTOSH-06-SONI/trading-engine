@@ -9,7 +9,8 @@ export default function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/research_results.json')
+    // Use import.meta.env.BASE_URL so it works correctly on GitHub Pages subpaths
+    fetch(`${import.meta.env.BASE_URL}research_results.json`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load research_results.json');
         return res.json();
