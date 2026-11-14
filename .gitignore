@@ -13,3 +13,5 @@ Thumbs.db
 # IDE settings
 .vscode/
 .idea/
+# CMake build artifacts
+/build/
