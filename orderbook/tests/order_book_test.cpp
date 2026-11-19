@@ -122,15 +122,23 @@ int main() {
     std::cout << "Test 12 passed: Delete current best ask\n";
 
 
-        // Test 13: Delete last remaining ask
+    // Test 13: Delete last remaining ask
     assert(book.apply_update(trading::Side::Ask, 105, 0));
 
     assert(!book.best_ask().has_value());
+    assert(book.best_bid().has_value());   // bids still exist
+    assert(*book.best_bid() == 96);
+    assert(!book.empty());                 // book not empty yet
+
+    std::cout << "Test 13 passed: Delete last remaining ask\n";
+
+    // Test 14: Delete last remaining bid
+    assert(book.apply_update(trading::Side::Bid, 96, 0));
+
+    assert(!book.best_bid().has_value());
     assert(book.empty());
 
-    std::cout << "Test 13 passed: Empty entire book\n";
-
-
+    std::cout << "Test 14 passed: Empty entire book\n";
 
     std::cout << "\nAll tests passed!" << std::endl;
 
