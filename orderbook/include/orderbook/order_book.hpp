@@ -11,6 +11,8 @@ class OrderBook {
         bool apply_update(Side side, Price price, Quantity quantity);
         std::optional<Price> best_bid() const;
         std::optional<Price> best_ask() const;
+        std::optional<Level> best_bid_level() const;
+        std::optional<Level> best_ask_level() const;
         bool empty() const;
     private:
         std::map<Price, Quantity, std::greater<Price>> bids; // internal bid map- has price and quantity 

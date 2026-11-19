@@ -41,3 +41,21 @@ std::optional<trading::Price> trading::OrderBook::best_ask() const{
 bool trading::OrderBook::empty() const{
     return bids.empty() && asks.empty();
 }   
+std::optional<trading::Level> trading::OrderBook::best_ask_level() const{
+    if(asks.empty()){
+        return std::nullopt;
+    }
+    return Level{
+        asks.begin()->first,
+        asks.begin()->second
+    };
+}
+std::optional<trading::Level> trading::OrderBook::best_bid_level() const {
+    if (bids.empty()) {
+        return std::nullopt;
+    }
+    return Level{
+        bids.begin()->first,
+        bids.begin()->second
+    };
+}

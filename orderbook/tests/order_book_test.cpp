@@ -140,6 +140,45 @@ int main() {
 
     std::cout << "Test 14 passed: Empty entire book\n";
 
+    // Test 15: retrieve level of best bid
+    trading::OrderBook fresh;
+    fresh.apply_snapshot({{97, 2}, {96, 7}}, {{104, 4}});
+
+    auto best_bid = fresh.best_bid_level();
+    assert(best_bid.has_value());
+    assert(best_bid->price == 97);
+    assert(best_bid->quantity == 2);
+    std::cout << "Test 15 passed: Retrieve best bid level\n";
+    // Test 16: retrieve level of best ask
+    trading::OrderBook ask_book;
+    ask_book.apply_snapshot({{97, 2}}, {{101, 3}, {102, 8}});
+
+    auto best_ask = ask_book.best_ask_level();
+    assert(best_ask.has_value());
+    assert(best_ask->price == 101);
+    assert(best_ask->quantity == 3);
+    std::cout << "Test 16 passed: Retrieve best ask level\n";
+
+
+    // Test 17: best bid level on empty book
+    trading::OrderBook empty_bid_book;
+
+    assert(!empty_bid_book.best_bid_level().has_value());
+    std::cout << "Test 17 passed: Best bid level on empty book\n";
+
+
+    // Test 18: best ask level on empty book
+    trading::OrderBook empty_ask_book;
+
+    assert(!empty_ask_book.best_ask_level().has_value());
+    std::cout << "Test 18 passed: Best ask level on empty book\n";
+    // Test 19: best ask level when only bids exist
+    trading::OrderBook one_sided;
+    one_sided.apply_snapshot({{100, 5}}, {});
+
+    assert(one_sided.best_bid_level().has_value());
+    assert(!one_sided.best_ask_level().has_value());
+    std::cout << "Test 19 passed: One-sided book\n";
     std::cout << "\nAll tests passed!" << std::endl;
 
     return 0;
