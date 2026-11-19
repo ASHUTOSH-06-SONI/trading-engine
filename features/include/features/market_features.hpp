@@ -6,5 +6,6 @@ namespace trading{
     public:
         static std::optional<double> spread(const OrderBook &book);
         static std::optional<double> mid_price(const OrderBook &book);
+        static std::optional<double> order_book_imbalance(const OrderBook &book);
     };
 }
