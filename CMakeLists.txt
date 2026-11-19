@@ -48,3 +48,15 @@ add_test(
     NAME orderbook_tests
     COMMAND orderbook_tests
 )
+add_executable(features_tests
+    features/tests/market_features_test.cpp
+)
+
+target_link_libraries(features_tests
+    PRIVATE features
+)
+
+add_test(
+    NAME features_tests
+    COMMAND features_tests
+)
